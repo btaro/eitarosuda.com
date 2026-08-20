@@ -65,6 +65,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-
 .message .m-title{font-size:15px;font-weight:700;color:var(--teal);letter-spacing:.35em;margin-bottom:40px;}
 .message p{font-size:19px;font-weight:700;line-height:2.6;color:var(--ink);max-width:34em;margin:0 auto 2.2em;}
 .message p:last-child{margin-bottom:0;}
+.message br.sp{display:none;}
 
 /* ===== follow (SNS誘導) ===== */
 .follow{padding:0 0 100px;background:#fff;}
@@ -211,7 +212,7 @@ footer .copy{opacity:.65;padding-bottom:30px;}
   .hero-line{color:var(--teal-deep);}
   .message{padding:72px 24px 64px;}
   .message p{font-size:16.5px;line-height:2.2;}
-  .message p br{display:none;}
+  .message br.sp{display:inline;}
   .prof-wrap{grid-template-columns:1fr;}
   .fact-cards{grid-template-columns:1fr;}
   .prof-snap{max-height:420px;}
@@ -269,10 +270,10 @@ footer .copy{opacity:.65;padding-bottom:30px;}
 <!-- ================= MESSAGE ================= -->
 <div class="message">
   <div class="m-title">MESSAGE</div>
-  <p>バスが走る。学校が続く。祭りがにぎわう。<br>「当たり前」だと思われていた暮らしが、<br>人口減少が進むこの国から、少しずつ失われつつあります。</p>
-  <p>こうした暮らしは、放っておいて続くものではありません。<br>支える仕組みと、未来への投資があって、<br>はじめて守り、立て直し、次の世代に手渡せるものです。</p>
-  <p>ミャンマーの避難民キャンプで、震災後の東北で、<br>そして自動運転バスを走らせた小豆島で。<br>暮らしを支える仕組みの大切さを現場で教わってきました。</p>
-  <p>その学びのすべてを、国会の仕事に変えていきます。</p>
+  <p>バスが走る。学校が続く。<br class="sp">祭りがにぎわう。<br><br class="sp">「当たり前」だと思われていた暮らしが、<br>人口減少が進むこの国から、<br class="sp">少しずつ失われつつあります。</p>
+  <p>こうした暮らしは、<br class="sp">放っておいて続くものではありません。<br>支える仕組みと、未来への投資があって、<br>はじめて守り、立て直し、<br class="sp">次の世代に手渡せるものです。</p>
+  <p>ミャンマーの避難民キャンプで、<br class="sp">震災後の東北で、<br>そして自動運転バスを走らせた小豆島で。<br>暮らしを支える仕組みの大切さを<br class="sp">現場で教わってきました。</p>
+  <p>その学びのすべてを、<br class="sp">国会の仕事に変えていきます。</p>
 </div>
 
 <!-- ================= PROFILE ================= -->
