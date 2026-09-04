@@ -608,5 +608,42 @@ footer .copy{opacity:.65;padding-bottom:30px;}
   <div class="foot-grad"></div>
 </footer>
 
+<script>
+/* セクション閲覧計測: 各セクションが画面上部70%の領域に入ったら一度だけGA4イベント送信 */
+(function(){
+  if (typeof gtag !== 'function' || !('IntersectionObserver' in window)) return;
+  var targets = [
+    ['.message', 'message', 'MESSAGE'],
+    ['#profile', 'profile', '01 プロフィール'],
+    ['#policy', 'policy', '02 政策・取り組み'],
+    ['#story', 'story', '03 生い立ち'],
+    ['#diet', 'diet', '04 国会での活動'],
+    ['#media', 'media', '05 メディア・著作・講演'],
+    ['.support', 'support', 'チームみらいを応援する'],
+    ['#contact', 'contact', '06 お問い合わせ']
+  ];
+  var seen = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var key = e.target.getAttribute('data-ga-sec');
+      if (!key || seen[key]) return;
+      seen[key] = true;
+      gtag('event', 'section_view', {
+        section_id: key,
+        section_name: e.target.getAttribute('data-ga-name')
+      });
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -30% 0px' });
+  targets.forEach(function(t){
+    var el = document.querySelector(t[0]);
+    if (!el) return;
+    el.setAttribute('data-ga-sec', t[1]);
+    el.setAttribute('data-ga-name', t[2]);
+    io.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
